@@ -1,30 +1,47 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Vue from 'vue';
+import Router from 'vue-router';
+import LoginViewPage from '../views/LoginViewPage';
+import JoinViewPage from '../views/JoinViewPage';
+import MainViewPage from '../views/MainViewPage';
+import store from '../store';
+import { getUserFromCookie } from '../utils/cookies.js';
 
-Vue.use(VueRouter);
+Vue.use(Router);
 
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home,
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
-  },
-];
-
-const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
-  routes,
+export default new Router({
+  mode: 'history',
+  routes: [
+    {
+      path: '/',
+      redirect: '/login',
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginViewPage,
+      beforeEnter(to, from, next) {
+        store.getters['isLoggedIn'] ? next('/main') : next();
+      },
+    },
+    {
+      path: '/join',
+      name: 'signup',
+      component: JoinViewPage,
+    },
+    {
+      path: '/main',
+      name: 'main',
+      component: MainViewPage,
+      beforeEnter,
+    },
+  ],
 });
 
-export default router;
+function beforeEnter(to, from, next) {
+  if (store.getters['isLoggedIn'] || getUserFromCookie()) {
+    next();
+  } else {
+    alert('sign in please');
+    next('/login');
+  }
+}
