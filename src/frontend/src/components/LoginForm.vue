@@ -13,7 +13,7 @@
         </div>
         <div>
           <label for="password">pw:</label>
-          <input id="password" type="text" v-model="password" />
+          <input id="password" type="password" v-model="password" />
         </div>
         <button
             :disabled="!isUsernameValid || !password"
@@ -77,7 +77,7 @@ export default {
 </script>
 
 <style>
-.btn {
-  color: white;
-}
+/*.btn {*/
+/*  color: white;*/
+/*}*/
 </style>
