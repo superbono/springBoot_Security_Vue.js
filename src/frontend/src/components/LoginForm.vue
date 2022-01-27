@@ -1,22 +1,34 @@
 <template>
-  <form @submit.prevent="submitForm">
-    <div>
-      <label for="username">id:</label>
-      <input id="username" type="text" v-model="username" />
+  <div class="contents">
+    <div class="form-wrapper form-wrapper-sm">
+      <form @submit.prevent="submitForm" class="form">
+        <div>
+          <label for="username">id:</label>
+          <input id="username" type="text" v-model="username" />
+          <p class="validation-text">
+            <span class="warning" v-if="!isUsernameValid && username">
+              Please enter an email address
+            </span>
+          </p>
+        </div>
+        <div>
+          <label for="password">pw:</label>
+          <input id="password" type="text" v-model="password" />
+        </div>
+        <button
+            :disabled="!isUsernameValid || !password"
+            type="submit"
+            class="btn"
+        >
+          로그인
+        </button>
+      </form>
+      <p class="log">{{ logMessage }}</p>
     </div>
-    <div>
-      <label for="password">pw:</label>
-      <input id="password" type="text" v-model="password" />
-    </div>
-    <button :disabled="!isUsernameValid || !password" type="submit">
-      로그인
-    </button>
-    <p>{{ logMessage }}</p>
-  </form>
+  </div>
 </template>
 
 <script>
-import { loginUser } from '@/api/index';
 import { validateEmail } from '@/utils/validation';
 
 export default {
@@ -42,16 +54,16 @@ export default {
           username: this.username,
           password: this.password,
         };
-        const response = await loginUser(userData);
-        console.log(response);
+        const response = await this.$store.dispatch('LOGIN', userData);
+        // await this.$store.dispatch('LOGIN', userData);
+        // console.log(response.headers);
         console.log('완료');
-        this.logMessage = `${this.username}님, 환영합니다`;
+        this.$router.push('/main');
         this.initForm();
       } catch (error) {
+        // 에러 핸들링할 코드
         console.log(error.response.data);
         this.logMessage = error.response.data;
-        console.log('실패');
-        // this.initForm();
       } finally {
         this.initForm();
       }
@@ -64,4 +76,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.btn {
+  color: white;
+}
+</style>
