@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <h1>로그인 페이지</h1>
+  <div class="loginWrapper">
     <LoginForm></LoginForm>
   </div>
 </template>
@@ -15,4 +14,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+  @import "~/assets/common.css";
+</style>
