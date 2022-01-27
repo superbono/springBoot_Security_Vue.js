@@ -79,8 +79,9 @@ export default {
         this.initForm();
       } catch (error) {
         // 에러 핸들링할 코드
-        console.log(error.response.data);
-        this.logMessage = error.response.data;
+        // console.log(error.response.data);
+        alert("회원정보가 없습니다.")
+        // this.logMessage = error.response.data;
       } finally {
         this.initForm();
       }
