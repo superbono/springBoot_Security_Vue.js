@@ -80,7 +80,7 @@ export default {
       } catch (error) {
         // 에러 핸들링할 코드
         // console.log(error.response.data);
-        alert("회원정보가 없습니다.")
+        alert("아이디와 비밀번호를 확인해주세요.")
         // this.logMessage = error.response.data;
       } finally {
         this.initForm();
