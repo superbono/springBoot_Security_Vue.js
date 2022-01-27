@@ -1,15 +1,18 @@
 import axios from 'axios';
+import { setInterceptors } from './common/interceptors';
 
-const instance = axios.create({
-  baseURL: process.env.VUE_APP_API_URL,
-});
-
-function registerUser(userData) {
-  return instance.post('api/join', userData);
+function createInstance() {
+  return axios.create({
+    baseURL: process.env.VUE_APP_API_URL,
+  });
 }
 
-function loginUser(userData) {
-  return instance.post('login', userData);
+function createInstanceWithAuth(url) {
+  const instance = axios.create({
+    baseURL: `${process.env.VUE_APP_API_URL}${url}`,
+  });
+  return setInterceptors(instance);
 }
 
-export { registerUser, loginUser };
+export const instance = createInstance();
+export const posts = createInstanceWithAuth('posts');
