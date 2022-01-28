@@ -1,21 +1,40 @@
 <template>
-  <header style="background: #2DB400">
+  <header>
     <template v-if="isUserLogin">
-    <div>
-      <router-link :to="logoLink" class="logo">
-        TIL
-        <span v-if="isUserLogin">by {{ $store.state.username }}</span>
-      </router-link>
-    </div>
-    <div class="navigations">
-      <!-- 1 -->
-        <a href="javascript:;" @click="logoutUser" class="logout-button">
-          Logout
-        </a>
-      <!-- 2 -->
-        <router-link to="/login">로그인</router-link>
-        <router-link to="/join">회원가입</router-link>
-    </div>
+      <div>
+        <b-navbar toggleable="lg" type="dark" style="background: #2C3E50; height: 70px;">
+          <b-navbar-brand href="/main" style="margin-left: 8px;">
+            <img src="@/assets/img/logo_white.png" style="width: 140px; height: 120px;">
+          </b-navbar-brand>
+
+          <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+          <b-collapse id="nav-collapse" is-nav>
+            <b-navbar-nav>
+              <b-nav-item href="#">조회</b-nav-item>
+              <b-nav-item href="#">작성</b-nav-item>
+            </b-navbar-nav>
+
+            <!-- Right aligned nav items -->
+            <b-navbar-nav class="ml-auto">
+
+              <b-nav-item-dropdown right style="margin-left: 1050px;">
+                <!-- Using 'button-content' slot -->
+                <template #button-content>
+                  <em>User</em>
+                </template>
+                <b-dropdown-item href="#">Profile</b-dropdown-item>
+                <b-dropdown-item href="#">
+                  <a href="javascript:;" @click="logoutUser" class="logout-button"
+                     style="text-decoration: none; color: #000">
+                    로그아웃
+                  </a>
+                </b-dropdown-item>
+              </b-nav-item-dropdown>
+            </b-navbar-nav>
+          </b-collapse>
+        </b-navbar>
+      </div>
     </template>
     <template v-else>
 

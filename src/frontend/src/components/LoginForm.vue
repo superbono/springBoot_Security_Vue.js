@@ -29,6 +29,7 @@
         <div style="margin-top: 30px;">
           <button
               :disabled="!isUsernameValid || !password"
+              @click="mainMove"
               type="submit"
               class="btn"
               style="width: 340px; height: 42px; background: #fff; border: 1px solid #d0e1d4; margin-top: -5px; font-weight: bold;"
@@ -108,6 +109,7 @@ export default {
           password: this.password,
         };
         const response = await this.$store.dispatch('LOGIN', userData);
+        this.mainMove();
         // await this.$store.dispatch('LOGIN', userData);
         // console.log(response.headers);
         console.log('완료');
@@ -122,6 +124,9 @@ export default {
       } finally {
         this.initForm();
       }
+    },
+    mainMove() {
+      this.$router.push("/main");
     },
     joinMove() {
       this.$router.push("/join");
