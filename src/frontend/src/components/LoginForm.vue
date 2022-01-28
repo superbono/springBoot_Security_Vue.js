@@ -38,22 +38,22 @@
         </div>
         <div style="margin-top: 10px;">
           <button
-              :disabled="!isUsernameValid || !password"
-              type="submit"
+              type="button"
               class="btn"
               style="width: 340px; height: 42px; background: #fff; border: 1px solid #d0e1d4;
                      margin-top: -5px; font-weight: bold; background: #3b5998; color: #fff"
+              @click="oauthMove"
           >
             페이스북 아이디로 로그인
           </button>
         </div>
         <div style="margin-top: 10px;">
           <button
-              :disabled="!isUsernameValid || !password"
-              type="submit"
+              type="button"
               class="btn"
               style="width: 340px; height: 42px; background: #fff; border: 1px solid #d0e1d4;
                      margin-top: -5px; font-weight: bold; background: #2DB400; color: #fff"
+              @click="oauthMove"
           >
             네이버 아이디로 로그인
           </button>
@@ -64,6 +64,7 @@
               class="btn"
               style="width: 340px; height: 42px; background: #E74C3C; border: 1px solid #d0e1d4;
                      margin-top: -5px; font-weight: bold; color: #fff"
+              @click="oauthMove"
           >
             구글 아이디로 로그인
           </button>
@@ -110,7 +111,7 @@ export default {
         // await this.$store.dispatch('LOGIN', userData);
         // console.log(response.headers);
         console.log('완료');
-        alert('메인페이지로 이동합니다.');
+        // alert('메인페이지로 이동합니다.');
         // this.$router.push('/main');
         this.initForm();
       } catch (error) {
@@ -124,6 +125,9 @@ export default {
     },
     joinMove() {
       this.$router.push("/join");
+    },
+    oauthMove() {
+      alert('추후 개발 예정입니다.');
     },
     initForm() {
       this.username = '';
