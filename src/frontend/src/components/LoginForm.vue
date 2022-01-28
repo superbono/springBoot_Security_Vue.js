@@ -11,7 +11,7 @@
         <div style="margin-top: -45px;">
           <label for="username"></label>
           <input id="username" type="text" v-model="username" style="border: 1px solid #D1D5D8; width: 85%; height: 35px;
-                                                                      background: #fff;" placeholder="이메일을 입력하세요" />
+                                                                      background: #fff;" placeholder="이메일을 입력하세요" autofocus />
         </div>
         <div>
           <label for="password"></label>
@@ -84,6 +84,7 @@
 import { validateEmail } from '@/utils/validation';
 
 export default {
+
   data() {
     return {
       // form values
@@ -128,7 +129,7 @@ export default {
       this.username = '';
       this.password = '';
     },
-  },
+},
 };
 </script>
 
@@ -142,5 +143,8 @@ export default {
     padding: 12px 20px;
     /*margin: 8px 0;*/
     box-sizing: border-box;
+  }
+  #username:focus {
+
   }
 </style>
