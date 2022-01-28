@@ -4,11 +4,11 @@ import store from '@/store/index';
 
 Vue.use(VueRouter);
 
-history.pushState(null, document.title, "#back");
-
-window.onpopstate = function() {
-	history.go(1);
-};
+// history.pushState(null, document.title, "#back");
+//
+// window.onpopstate = function() {
+// 	history.go(1);
+// };
 
 const router = new VueRouter({
 	mode: 'history',

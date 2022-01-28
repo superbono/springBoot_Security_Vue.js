@@ -15,4 +15,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+*,
+*::before,
+*::after {
+  /* 테두리를 기준으로 크기를 정합니다. */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+</style>

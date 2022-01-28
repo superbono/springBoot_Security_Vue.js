@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header style="background: #2DB400">
     <template v-if="isUserLogin">
     <div>
       <router-link :to="logoLink" class="logo">

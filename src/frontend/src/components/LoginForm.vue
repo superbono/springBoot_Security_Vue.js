@@ -60,8 +60,7 @@
         </div>
         <div style="margin-top: 10px;">
           <button
-              :disabled="!isUsernameValid || !password"
-              type="submit"
+              type="button"
               class="btn"
               style="width: 340px; height: 42px; background: #E74C3C; border: 1px solid #d0e1d4;
                      margin-top: -5px; font-weight: bold; color: #fff"
@@ -145,7 +144,7 @@ export default {
     /*margin: 8px 0;*/
     box-sizing: border-box;
   }
-  #username:focus {
-
+  button {
+    cursor: pointer;
   }
 </style>

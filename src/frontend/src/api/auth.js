@@ -11,4 +11,8 @@ function loginUser(userData) {
   return instance.post('login', userData);
 }
 
-export { registerUser, loginUser };
+function Oauth2Google(userData) {
+  return instance.get('login/oauth2/authorizaion/google');
+}
+
+export { registerUser, loginUser, Oauth2Google };
