@@ -25,6 +25,8 @@ public class User extends BaseEntity {
     private String nickname;
     @Column(length = 100)
     private String roles;
+    private String provider;
+    private String providerId;
 
     public List<String> getRoleList() {
         if(this.roles.length() > 0) {

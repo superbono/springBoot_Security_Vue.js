@@ -19,6 +19,8 @@ public class UserController {
 
     @PostMapping("/join")
     public String join(@RequestBody User user) {
+        user.setProviderId("nvl");
+        user.setProvider("NEVERLAND");
         user.setRoles("ROLE_USER");
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         repository.save(user);
