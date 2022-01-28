@@ -82,7 +82,8 @@ export default {
       };
       const { data } = await registerUser(userData);
       console.log(data.username);
-      this.logMessage = `${this.username}` +  "님이 가입되었습니다";
+      alert('회원가입이 완료되었습니다.');
+      // this.logMessage = `${this.username}` +  "님이 가입되었습니다";
       this.initForm();
     },
     loginMove() {

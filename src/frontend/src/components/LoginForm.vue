@@ -75,7 +75,7 @@
 <!--          </button>-->
       </div>
       </form>
-      <p class="log">{{ logMessage }}</p>
+<!--      <p class="log">{{ logMessage }}</p>-->
     </div>
   </div>
 </template>
@@ -111,7 +111,8 @@ export default {
         // await this.$store.dispatch('LOGIN', userData);
         // console.log(response.headers);
         console.log('완료');
-        this.$router.push('/main');
+        alert('메인페이지로 이동합니다.');
+        // this.$router.push('/main');
         this.initForm();
       } catch (error) {
         // 에러 핸들링할 코드
