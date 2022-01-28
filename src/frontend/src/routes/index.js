@@ -4,6 +4,11 @@ import store from '@/store/index';
 
 Vue.use(VueRouter);
 
+history.pushState(null, document.title, "#back");
+
+window.onpopstate = function() {
+	history.go(1);
+};
 
 const router = new VueRouter({
 	mode: 'history',
@@ -37,6 +42,8 @@ router.beforeEach((to, from, next) => {
 		console.log('인증이 필요합니다');
 		next('/login');
 		return;
+	}  else {
+		next();
 	}
 	next();
 });
