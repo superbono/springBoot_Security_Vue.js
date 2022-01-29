@@ -18,7 +18,7 @@
             <!-- Right aligned nav items -->
             <b-navbar-nav class="ml-auto">
 
-              <b-nav-item-dropdown right style="margin-left: 1050px;">
+              <b-nav-item-dropdown right style="margin-left: 1000px;">
                 <!-- Using 'button-content' slot -->
                 <template #button-content>
                   <em>User</em>
