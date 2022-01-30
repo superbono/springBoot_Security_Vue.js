@@ -1,6 +1,6 @@
 <template>
 	<div>
-    <h2>404Page</h2>
+    <h2>404Page 에러페이지</h2>
 	</div>
 </template>
 
