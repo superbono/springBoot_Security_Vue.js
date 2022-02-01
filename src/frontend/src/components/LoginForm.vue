@@ -114,7 +114,7 @@ export default {
         // console.log(response.headers);
         console.log('완료');
         // alert('메인페이지로 이동합니다.');
-        // this.$router.push('/main');
+        this.$router.push('/main');
         this.initForm();
       } catch (error) {
         // 에러 핸들링할 코드

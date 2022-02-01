@@ -15,7 +15,7 @@ const router = new VueRouter({
 	routes: [
 		{
 			path: '/',
-			redirect: '/login',
+			redirect: '/main',
 		},
 		{
 			path: '/login',
@@ -28,7 +28,6 @@ const router = new VueRouter({
 		{
 			path: '/main',
 			component: () => import('@/views/MainPage.vue'),
-			meta: { auth: true },
 		},
 		{
 			path: '*',

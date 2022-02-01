@@ -38,7 +38,7 @@
                 <h3>첫번째 슬라이드</h3>
                 <p>첫번째 슬라이드 입니다.</p>
               </div>
-              <img src="@/assets/images/img6.jpg">
+              <img src="@/assets/images/img1.jpg">
             </a>
           </li>
           <li class="slideitem">
@@ -48,7 +48,7 @@
                 <h3>두번째 슬라이드</h3>
                 <p>두번째 슬라이드 입니다.</p>
               </div>
-              <img src="@/assets/images/img6.jpg">
+              <img src="@/assets/images/img2.jpg">
             </a>
           </li>
           <li class="slideitem">
@@ -58,7 +58,7 @@
                 <h3>세번째 슬라이드</h3>
                 <p>세번째 슬라이드 입니다.</p>
               </div>
-              <img src="@/assets/images/img6.jpg">
+              <img src="@/assets/images/img3.jpg">
             </a>
           </li>
           <!-- 좌,우 슬라이드 버튼 -->

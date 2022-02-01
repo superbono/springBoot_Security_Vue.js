@@ -12,7 +12,7 @@ body {
 body { min-width: 1280px;}
 header { position: relative;height: 81px; text-align: center;}
 header h1 { position: absolute; left:50px; top: 0; padding: 14px 0 0; margin-top: 12px;}
-header h1 a{ display: block; width: 140px; height: 48px; color: transparent; background:url(../images/neverland.png) }
+header h1 span{ display: block; width: 140px; height: 48px; color: transparent; background:url(../images/neverland.png) }
 header .lnb li { display: inline-block;}
 header .lnb li a {display: block; height: 110px; padding: 0 35px; font-size: 17px; color: #333; line-height: 81px; font-family: 'SCoreDream'; font-weight: 400; }
 header .lnb li a:hover { color: #000; font-weight: bold;}

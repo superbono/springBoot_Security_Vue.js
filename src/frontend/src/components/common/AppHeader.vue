@@ -3,7 +3,7 @@
     <template v-if="isUserLogin">
       <a href="#contents" class="skip">본문바로가기</a>
       <header>
-        <h1><a href="#a">네버랜드</a></h1>
+        <h1><span>네버랜드</span></h1>
         <h2 class="hide">대메뉴</h2>
         <nav class="lnb">
           <ul>
@@ -25,7 +25,28 @@
       </header>
     </template>
     <template v-else>
-
+      <a href="#contents" class="skip">본문바로가기</a>
+      <header>
+        <h1><span>네버랜드</span></h1>
+        <h2 class="hide">대메뉴</h2>
+        <nav class="lnb">
+          <ul>
+            <li><a href="#a"><span>홈</span></a></li>
+            <li><a href="#a"><span>게시판</span></a></li>
+            <li><a href="#a"><span>네버랜드</span></a></li>
+            <li><a href="#a"><span>마이페이지</span></a></li>
+            <li><a href="#a"><span>공지사항</span></a></li>
+          </ul>
+        </nav>
+        <h2 class="hide">관련서비스</h2>
+        <nav class="spot">
+          <ul>
+            <li><a href="/join">회원가입</a></li>
+            <li><a href="/login">로그인</a></li>
+            <li><a href="#a">프로젝트소개</a></li>
+          </ul>
+        </nav>
+      </header>
     </template>
 
   </header>
@@ -45,11 +66,15 @@ export default {
   },
   methods: {
     logoutUser() {
-      this.$store.commit('clearUsername');
-      this.$store.commit('clearToken');
-      deleteCookie('til_auth');
-      deleteCookie('til_user');
-      this.$router.push('/login');
+      if(confirm('로그아웃 하시겠습니까?')) {
+        alert('로그아웃 되었습니다.');
+        this.$store.commit('clearUsername');
+        this.$store.commit('clearToken');
+        deleteCookie('til_auth');
+        deleteCookie('til_user');
+        this.$router.push('/main');
+        this.isUserLogin();
+      }
     },
   },
 };
