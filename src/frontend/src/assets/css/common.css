@@ -27,9 +27,9 @@ header .spot li:last-child a { padding-right:0; }
 
 .visual { position: relative; padding: 0 50px;}
 .visual .con > div { height: 640px;}
-.visual .con .slide { background: url(../images/main-test.png) no-repeat center; color: #000; font-size: 32px; line-height: 46px;}
+.visual .con .slide { background: url(../images/ttt.png) no-repeat center; color: #000; font-size: 32px; line-height: 46px;}
 .visual .con .slide p { padding: 19px 0 0; font-size: 20px; line-height: 100%; font-family: 'SCoreDream'; font-weight: 200; }
-.visual .con .slide .txt { position: absolute; left: 6; top: 150px; font-family: 'SCoreDream'; font-weight: 400; }
+.visual .con .slide .txt { position: absolute; left: 950px; top: 120px; font-family: 'SCoreDream'; font-weight: 400; }
 
 .product a { display: block;color: #001829; font-size: 15px;}
 .product a:hover { color: #AF4D4D; font-weight: bold;}
