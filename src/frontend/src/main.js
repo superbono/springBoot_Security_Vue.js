@@ -5,7 +5,8 @@ import store from '@/store/index';
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-import('@/assets/css/common.css');
+import('../src/assets/css/common.css');
+import('../src/assets/css/reset.css');
 
 Vue.use(BootstrapVue);
 Vue.config.productionTip = false;
