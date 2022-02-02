@@ -20,8 +20,8 @@
         <h2 class="hide">관련서비스</h2>
         <nav class="spot">
           <ul>
-            <li><a href="#a">프로젝트소개</a></li>
-            <li><a href="#a">프로필</a></li>
+            <li><a @click="moveProject">프로젝트소개</a></li>
+            <li><a @click="moveUser">프로필</a></li>
             <li><a href="#a" @click="logoutUser">로그아웃</a></li>
           </ul>
         </nav>
@@ -38,7 +38,7 @@
 <!--            <li><a href="#a"><span>게시판</span></a></li>-->
             <li><a @click="moveNeverland"><span>네버랜드</span></a></li>
 <!--            <li><a href="#a"><span>마이페이지</span></a></li>-->
-            <li><a href="#a"><span>공지사항</span></a></li>
+            <li><a @click="moveNotice"><span>공지사항</span></a></li>
           </ul>
         </nav>
         <h2 class="hide">관련서비스</h2>
@@ -46,7 +46,7 @@
           <ul>
             <li><a href="/join" >회원가입</a></li>
             <li><a href="/login">로그인</a></li>
-            <li><a href="#a">프로젝트소개</a></li>
+            <li><a @click="moveProject">프로젝트소개</a></li>
           </ul>
         </nav>
       </header>
@@ -83,6 +83,9 @@ export default {
     moveNotice() {
       this.$router.push('/notice');
     },
+    moveProject() {
+      this.$router.push('/project');
+    },
     logoutUser() {
       if(confirm('로그아웃 하시겠습니까?')) {
         alert('로그아웃 되었습니다.');
@@ -101,5 +104,9 @@ export default {
 <style scoped>
 .lnb ul > li > a {
   cursor: pointer;
+}
+.spot ul > li > a {
+  cursor: pointer;
+  color: #000;
 }
 </style>

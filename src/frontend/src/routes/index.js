@@ -53,6 +53,11 @@ const router = new VueRouter({
 			component: () => import('@/views/UserDetailPage.vue'),
 		},
 		{
+			path: '/project',
+			name: 'project',
+			component: () => import('@/views/ProjectPage.vue'),
+		},
+		{
 			name: 'error',
 			path: '*',
 			component: () => import('@/views/NotFoundPage.vue'),
