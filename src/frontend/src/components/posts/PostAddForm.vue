@@ -1,0 +1,14 @@
+<template>
+  <div>
+    <h2>게시판 페이지</h2>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "PostAddForm",
+}
+</script>
+
+<style scoped>
+</style>

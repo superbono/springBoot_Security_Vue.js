@@ -7,11 +7,14 @@
         <h2 class="hide">대메뉴</h2>
         <nav class="lnb">
           <ul>
-            <li><a href="#a"><span>홈</span></a></li>
-            <li><a href="#a"><span>게시판</span></a></li>
-            <li><a href="#a"><span>네버랜드</span></a></li>
-            <li><a href="#a"><span>마이페이지</span></a></li>
-            <li><a href="#a"><span>공지사항</span></a></li>
+<!--            <li><a href="/main"><span>홈</span></a></li>-->
+<!--            <li><a href="/post/create"><span>게시판</span></a></li>-->
+<!--            <li><a href="/neverland"><span>네버랜드</span></a></li>-->
+            <li><a @click="moveHome"><span>홈</span></a></li>
+            <li><a @click="moveBoard"><span>게시판</span></a></li>
+            <li><a @click="moveNeverland"><span>네버랜드</span></a></li>
+            <li><a @click="moveUser"><span>마이페이지</span></a></li>
+            <li><a @click="moveNotice"><span>공지사항</span></a></li>
           </ul>
         </nav>
         <h2 class="hide">관련서비스</h2>
@@ -31,10 +34,10 @@
         <h2 class="hide">대메뉴</h2>
         <nav class="lnb">
           <ul>
-            <li><a href="#a"><span>홈</span></a></li>
-            <li><a href="#a"><span>게시판</span></a></li>
-            <li><a href="#a"><span>네버랜드</span></a></li>
-            <li><a href="#a"><span>마이페이지</span></a></li>
+            <li><a @click="moveHome"><span>홈</span></a></li>
+<!--            <li><a href="#a"><span>게시판</span></a></li>-->
+            <li><a @click="moveNeverland"><span>네버랜드</span></a></li>
+<!--            <li><a href="#a"><span>마이페이지</span></a></li>-->
             <li><a href="#a"><span>공지사항</span></a></li>
           </ul>
         </nav>
@@ -65,8 +68,22 @@ export default {
     },
   },
   methods: {
+    moveHome() {
+      this.$router.push('/');
+    },
+    moveUser() {
+      this.$router.push('/user/detail');
+    },
+    moveNeverland() {
+      this.$router.push('/neverland');
+    },
+    moveBoard() {
+      this.$router.push('/post/create');
+    },
+    moveNotice() {
+      this.$router.push('/notice');
+    },
     logoutUser() {
-      console.log(this.routeName);
       if(confirm('로그아웃 하시겠습니까?')) {
         alert('로그아웃 되었습니다.');
         this.$store.commit('clearUsername');
@@ -82,45 +99,7 @@ export default {
 </script>
 
 <style scoped>
-
-/*.username {*/
-/*  color: white;*/
-/*}*/
-/*header {*/
-/*  display: flex;*/
-/*  justify-content: space-between;*/
-/*  align-items: center;*/
-/*  padding: 10px 20px;*/
-/*  background-color: #927dfc;*/
-/*  z-index: 2;*/
-/*  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);*/
-/*}*/
-/*a {*/
-/*  color: #dedede;*/
-/*  font-size: 18px;*/
-/*}*/
-/*a.logo {*/
-/*  font-size: 30px;*/
-/*  font-weight: 900;*/
-/*  color: white;*/
-/*}*/
-/*.logo > span {*/
-/*  font-size: 14px;*/
-/*  font-weight: normal;*/
-/*}*/
-/*.navigations a {*/
-/*  margin-left: 10px;*/
-/*}*/
-/*.fixed {*/
-/*  position: fixed;*/
-/*  top: 0;*/
-/*  width: 100%;*/
-/*}*/
-/*.logout-button {*/
-/*  font-size: 14px;*/
-/*}*/
-/*a.router-link-exact-active {*/
-/*  color: white;*/
-/*  font-weight: bold;*/
-/*}*/
+.lnb ul > li > a {
+  cursor: pointer;
+}
 </style>

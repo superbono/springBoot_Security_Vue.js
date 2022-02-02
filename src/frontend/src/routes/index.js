@@ -33,6 +33,26 @@ const router = new VueRouter({
 			component: () => import('@/views/MainPage.vue'),
 		},
 		{
+			path: '/post/create',
+			name: 'postAdd',
+			component: () => import('@/views/PostAddPage.vue'),
+		},
+		{
+			path: '/neverland',
+			name: 'neverland',
+			component: () => import('@/views/NeverlandPage.vue'),
+		},
+		{
+			path: '/notice',
+			name: 'notice',
+			component: () => import('@/views/NoticePage.vue'),
+		},
+		{
+			path: '/user/detail',
+			name: 'userDetail',
+			component: () => import('@/views/UserDetailPage.vue'),
+		},
+		{
 			name: 'error',
 			path: '*',
 			component: () => import('@/views/NotFoundPage.vue'),
