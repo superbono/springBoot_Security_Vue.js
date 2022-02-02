@@ -3,28 +3,44 @@
     <section class="visual slide">
       <div class="con">
         <div class="slide">
-          <div class="txt">
-            당신이 생각하는<br>
+          <div class="txt" style="font-size: 160px; font-family: 'Bungee Hairline', cursive; font-weight: 500; opacity: .6">
+<!--            <br>-->
             NEVERLAND
-            <p>가장 멋진 네버랜드를 만들어주세요</p>
+<!--            <p>가장 멋진 네버랜드를 만들어주세요</p>-->
           </div>
         </div>
       </div>
     </section>
-    <section class="product">
-      <h2 class="hide">제품정보</h2>
-      <ul>
-        <li><a href="#a">홈</a></li>
-        <li><a href="#a">작성</a></li>
-        <li><a href="#a">조회</a></li>
-        <li><a href="#a">프로필</a></li>
-        <li><a href="#a">네버랜드</a></li>
-        <li><a href="#a">연락</a></li>
-      </ul>
-    </section>
-    <div class="section">
-      <h2>NEVERLAND</h2>
-      <p>다양한 네버랜드를 구경하세요</p>
+<!--    <section class="product">-->
+<!--      <h2 class="hide">제품정보</h2>-->
+<!--      <ul>-->
+<!--        <li><a href="#a">홈</a></li>-->
+<!--        <li><a href="#a">작성</a></li>-->
+<!--        <li><a href="#a">조회</a></li>-->
+<!--        <li><a href="#a">프로필</a></li>-->
+<!--        <li><a href="#a">네버랜드</a></li>-->
+<!--        <li><a href="#a">연락</a></li>-->
+<!--      </ul>-->
+<!--    </section>-->
+<!--    <section style="width: 100%; height: 250px;">-->
+
+<!--        <h2>NEVERLAND</h2>-->
+
+<!--    </section>-->
+    <div class="text_eff" style="width: 100%; height: 150px; text-align: center;">
+<!--      <h2 style="line-height: 250px;">-->
+
+<!--      </h2>-->
+      <div class="e" style="margin-top: 410px;">
+        <h1>우리가 직접 만드는 창작플랫폼</h1>
+      </div>
+    </div>
+<!--    <div style="width: 100%; height: 100px;">-->
+<!--      <span style="background: #2a3033; width: 200px;">#ffff</span>-->
+<!--    </div>-->
+    <div class="section" style="background: #fff;">
+<!--      <h2>NEVERLAND</h2>-->
+<!--      <p>다양한 네버랜드를 구경하세요</p>-->
       <input type="radio" name="slide" id="slide01" checked>
       <input type="radio" name="slide" id="slide02">
       <input type="radio" name="slide" id="slide03">
@@ -89,7 +105,7 @@
     <section class="notice">
       <div class="clear">
         <div class="top clear">
-          <h2>WHAT IS NEVERLAND?</h2>
+          <h2 style="font-size: 20px; margin-bottom: 25px; letter-spacing: 7px;">네버랜드는 무엇을 합니까?</h2>
           <ul>
             <li><a href="#a">창작하는<span>당신이 생각하는 플랫폼</span></a></li>
             <li><a href="#a">공유하는<span>우리가 생각하는 플랫폼</span></a></li>

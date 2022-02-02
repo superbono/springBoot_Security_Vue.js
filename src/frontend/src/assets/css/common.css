@@ -1,4 +1,5 @@
 @import url('https://webfontworld.github.io/SCoreDream/SCoreDream.css');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap');
 
 body {
     /*background: url("../../assets/img/main-login3.png");*/
@@ -29,7 +30,7 @@ header .spot li:last-child a { padding-right:0; }
 .visual .con > div { height: 640px;}
 .visual .con .slide { background: url(../images/ttt.png) no-repeat center; color: #000; font-size: 32px; line-height: 46px;}
 .visual .con .slide p { padding: 19px 0 0; font-size: 20px; line-height: 100%; font-family: 'SCoreDream'; font-weight: 200; }
-.visual .con .slide .txt { position: absolute; left: 950px; top: 120px; font-family: 'SCoreDream'; font-weight: 400; }
+.visual .con .slide .txt { position: absolute; left: 240px; top: 240px; font-family: 'SCoreDream'; color: #fff; text-shadow: 4px 4px 4px #70767a;}
 
 .product a { display: block;color: #001829; font-size: 15px;}
 .product a:hover { color: #AF4D4D; font-weight: bold;}
@@ -179,3 +180,81 @@ footer .btm address { font-size: 14px; color:#fff;}
 .section input[id="slide01"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(1) > label {background:#999;}
 .section input[id="slide02"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(2) > label {background:#999;}
 .section input[id="slide03"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(3) > label {background:#999;}
+
+.e{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+.e h1{
+    font-size:40px;
+    font-weight:bold;
+    /*font-family: 'Montserrat', sans-serif;*/
+    text-align:center;
+    color:#000;
+    letter-spacing:0px;
+    transition:1s;
+    -webkit-transition:1s;
+    -ms-transition:1s;
+    position: relative;
+    margin-top: 65px;
+    padding:5px;
+    margin-left: -10px;
+    font-family: 'SCoreDream'; font-weight: 150;
+}
+
+.e h1:before,
+.e h1:after{
+    content:"";
+    position: absolute;
+    height: 7px;
+    width: 0px;
+    /*background:#ffd800;*/
+    transition:300ms;
+    -webkit-transition:1s;
+    -ms-transition:1s;
+    opacity:0.3;
+    left:50%;
+}
+
+.e h1:before{
+    bottom:0;
+
+}
+
+.e h1:after{
+    top:0;
+}
+
+.e h1:hover{
+    font-size: 20px;
+    letter-spacing: 25px;
+    font-family: 'SCoreDream'; font-weight: 400;
+}
+
+.e h1:hover:before,
+.e h1:hover:after{
+    width: 95%;
+    opacity:1;
+    left:0;
+
+}
+.e h1:hover ~ h2{
+    opacity:0;
+}
+
+.e h2{
+    color:#fff;
+    font-family: 'Pinyon Script', cursive;
+    text-align:center;
+    font-size:100px;
+    font-weight:100;
+    bottom:40px;
+    position: absolute;
+    transition:1s;
+    -webkit-transition:1s;
+    -ms-transition:1s;
+    opacity:0.1;
+    width: 100%;
+}
