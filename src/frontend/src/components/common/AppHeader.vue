@@ -41,7 +41,7 @@
         <h2 class="hide">관련서비스</h2>
         <nav class="spot">
           <ul>
-            <li><a href="/join">회원가입</a></li>
+            <li><a href="/join" >회원가입</a></li>
             <li><a href="/login">로그인</a></li>
             <li><a href="#a">프로젝트소개</a></li>
           </ul>
@@ -66,6 +66,7 @@ export default {
   },
   methods: {
     logoutUser() {
+      console.log(this.routeName);
       if(confirm('로그아웃 하시겠습니까?')) {
         alert('로그아웃 되었습니다.');
         this.$store.commit('clearUsername');

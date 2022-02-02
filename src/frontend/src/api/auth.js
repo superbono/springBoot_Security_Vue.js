@@ -15,4 +15,4 @@ function Oauth2Google(userData) {
   return instance.get('login/oauth2/authorizaion/google');
 }
 
-export { registerUser, loginUser, Oauth2Google };
+export { registerUser, loginUser };

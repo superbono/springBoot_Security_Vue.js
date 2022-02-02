@@ -24,7 +24,7 @@
           </p>
         </div>
         <p style="font-size: 11px; margin-right: 140px; text-decoration: underline">
-          <a @click="joinMove" style="cursor: pointer; ">아직 회원이 아니신가요? 회원가입 하러가기</a>
+          <a @click="joinMove" style="cursor: pointer; color: #000; font-weight: bold">아직 회원이 아니신가요? 회원가입 하러가기</a>
         </p>
         <div style="margin-top: 30px;">
           <button

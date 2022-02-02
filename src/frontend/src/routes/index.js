@@ -18,18 +18,22 @@ const router = new VueRouter({
 			redirect: '/main',
 		},
 		{
+			name: 'login',
 			path: '/login',
 			component: () => import('@/views/LoginPage.vue'),
 		},
 		{
+			name: 'join',
 			path: '/join',
 			component: () => import('@/views/SignupPage.vue'),
 		},
 		{
+			name: 'main',
 			path: '/main',
 			component: () => import('@/views/MainPage.vue'),
 		},
 		{
+			name: 'error',
 			path: '*',
 			component: () => import('@/views/NotFoundPage.vue'),
 		},

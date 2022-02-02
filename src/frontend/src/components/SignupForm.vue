@@ -31,7 +31,7 @@
         </div>
     <!--    <button type="submit">회원 가입</button>-->
         <p style="font-size: 11px; margin-right: 180px; text-decoration: underline">
-          <a @click="loginMove" style="cursor: pointer; ">가입하셨나요? 로그인하러 가기</a>
+          <a @click="loginMove" style="cursor: pointer; color: #000; font-weight: bold ">가입하셨나요? 로그인하러 가기</a>
         </p>
         <div style="margin-top: 30px;">
           <button
