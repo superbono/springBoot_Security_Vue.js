@@ -31,6 +31,7 @@ header .spot li:last-child a { padding-right:0; }
 .visual .con .slide { background: url(../images/ttt.png) no-repeat center; color: #000; font-size: 32px; line-height: 46px;}
 .visual .con .slide p { padding: 19px 0 0; font-size: 20px; line-height: 100%; font-family: 'SCoreDream'; font-weight: 200; }
 .visual .con .slide .txt { position: absolute; left: 240px; top: 240px; font-family: 'SCoreDream'; color: #fff; text-shadow: 4px 4px 4px #70767a;}
+.visual .con .slide .txt:hover { font-family: 'SCoreDream'; color: #000; text-shadow: 4px 4px 4px #70767a; }
 
 .product a { display: block;color: #001829; font-size: 15px;}
 .product a:hover { color: #AF4D4D; font-weight: bold;}
