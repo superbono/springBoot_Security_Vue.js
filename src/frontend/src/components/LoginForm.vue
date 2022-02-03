@@ -17,13 +17,16 @@
           <label for="password"></label>
           <input id="password" type="password" v-model="password" style="border: 1px solid #D1D5D8; width: 85%; height: 35px;
                                                                          background: #fff; margin-top: 10px;" placeholder="비밀번호를 입력하세요" />
-          <p class="validation-text" style="margin-top: 8px; margin-right: 105px; font-size: 11px; color: brown">
+          <p class="validation-text" style="margin-top: 8px; margin-right: 25px; font-size: 13px; color: brown; font-weight: bold">
             <span class="warning" v-if="!isUsernameValid && username">
               올바른 형식이 아닙니다. 확인 후 다시 입력해주세요.
             </span>
+            <span class="warning" v-else-if="!isPasswordValid && password">
+              비밀번호는 8~16 영문, 숫자를 조합해주세요.
+            </span>
           </p>
         </div>
-        <p style="font-size: 11px; margin-right: 140px; margin-top: 15px; text-decoration: underline">
+        <p style="font-size: 11px; margin-right: -60px; margin-top: 15px; text-decoration: underline">
           <a @click="joinMove" style="cursor: pointer; color: #000;  font-weight: bold; font-size: 11px; margin-right: 60px;">아직 회원이 아니신가요? 회원가입 하러가기</a>
         </p>
         <div style="margin-top: 30px;">
@@ -82,7 +85,7 @@
 </template>
 
 <script>
-import { validateEmail } from '@/utils/validation';
+import {validateEmail, validatePassword} from '@/utils/validation';
 
 export default {
 
@@ -98,6 +101,9 @@ export default {
   computed: {
     isUsernameValid() {
       return validateEmail(this.username);
+    },
+    isPasswordValid() {
+      return validatePassword(this.password);
     },
   },
   methods: {
