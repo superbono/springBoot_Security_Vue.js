@@ -96,6 +96,7 @@ export default {
       password: '',
       // log
       logMessage: '',
+      submitFalse: false,
     };
   },
   computed: {
@@ -108,6 +109,9 @@ export default {
   },
   methods: {
     async submitForm() {
+      if(this.isUsernameValid && this.isPasswordValid) {
+        this.submitFalse = true;
+      }
       try {
         // 비즈니스 로직
         const userData = {
