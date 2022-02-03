@@ -13,17 +13,20 @@
           <label for="username"></label>
           <input id="username" type="text" v-model="username" style="border: 1px solid #D1D5D8; width: 85%; height: 35px;
                                                                       background: #fff;" placeholder="이메일을 입력하세요" autofocus />
-          <button type="button" @click="idChk">중복확인</button>
+          <button type="button" @click="idChk" style="margin-left: 9px;width: 48px; height: 35px; border-radius: 3px; background: #fff; border: 1px solid #949394;">중복확인</button>
+          <div id="idLog" style="margin-right: 240px; color: #4c5459; margin-top: 4px; font-size: 12px;">{{ idChkMsg }}</div>
         </div>
         <div>
           <label for="password"></label>
-          <input id="password" type="password" v-model="password" style="border: 1px solid #D1D5D8; width: 85%; height: 35px;
+          <input id="password" type="password" v-model="password" style="border: 1px solid #D1D5D8; width: 85%; height: 35px; margin-right: 55px;
                                                                          background: #fff; margin-top: 10px;" placeholder="비밀번호를 입력하세요" />
         </div>
         <div>
           <label for="nickname"></label>
           <input id="nickname" type="text" v-model="nickname" style="border: 1px solid #D1D5D8; width: 85%; height: 35px;
                                                                          background: #fff; margin-top: 10px;" placeholder="닉네임을 입력하세요" />
+          <button type="button" @click="nickChk" style="margin-left: 9px;width: 48px; height: 35px; border-radius: 3px; background: #fff; border: 1px solid #949394;">중복확인</button>
+          <div id="nickLog" style="margin-right: 240px; color: #4c5459; margin-top: 4px; font-size: 12px;">{{ nickChkMsg }}</div>
           <p class="validation-text" style="margin-top: 8px; margin-right: 105px; font-size: 11px; color: brown">
                 <span class="warning" v-if="!isUsernameValid && username">
                   올바른 형식이 아닙니다. 확인 후 다시 입력해주세요.
@@ -31,15 +34,15 @@
           </p>
         </div>
     <!--    <button type="submit">회원 가입</button>-->
-        <p style="font-size: 11px; margin-right: 180px; text-decoration: underline">
-          <a @click="loginMove" style="cursor: pointer; color: #000; font-weight: bold ">가입하셨나요? 로그인하러 가기</a>
+        <p style="font-size: 11px; margin-right: 180px; margin-top: 15px; text-decoration: underline">
+          <a @click="loginMove" style="cursor: pointer; color: #000; font-weight: bold; font-size: 11px; margin-right: 60px;">가입하셨나요? 로그인하러 가기</a>
         </p>
         <div style="margin-top: 30px;">
           <button
               :disabled="!isUsernameValid || !password || !nickname"
               type="submit"
               class="btn"
-              style="width: 340px; height: 42px; background: #fff; border: 1px solid #d0e1d4; margin-top: -5px; font-weight: bold;"
+              style="width: 400px; height: 42px; background: #fff; border: 1px solid #d0e1d4; margin-top: -5px; font-weight: bold;"
           >
             회원가입
           </button>
@@ -48,7 +51,7 @@
           <button
               type="reset"
               class="btn"
-              style="width: 340px; height: 42px; background: #fff; border: 1px solid #d0e1d4; margin-top: -5px; font-weight: bold;"
+              style="width: 400px; height: 42px; background: #fff; border: 1px solid #d0e1d4; margin-top: -5px; font-weight: bold;"
           >
             취소
           </button>
@@ -60,7 +63,7 @@
 </template>
 
 <script>
-import { registerUser } from '@/api/auth';
+import { registerUser, idChkUser, nickChkUser } from '@/api/auth';
 import { validateEmail } from '@/utils/validation';
 import axios from "axios";
 
@@ -68,42 +71,114 @@ export default {
   data() {
     return {
       // form values
+      idChkMsg: '',
+      nickChkMsg: '',
       username: '',
       password: '',
       nickname: '',
       // log
       logMessage: '',
+      duplicateId: false,
+      duplicateNick: false,
     };
   },
   methods: {
+    // async idChk() {
+    //   const userName = document.getElementById("username").value;
+    //   let duplicate = false;
+    //   let dupli = this.duplicate;
+    //   await axios.get('http://localhost:3000/api/idChk/?username='+userName)
+    //        .then(function (res){
+    //          console.log(res.status);
+    //          if(res.status == 200) {
+    //            console.log('사용가능');
+    //            dupli = true;
+    //            console.log(duplicate);
+    //          }
+    //        })
+    //        .catch(function (err){
+    //          // console.log(err);
+    //          duplicate = false;
+    //          console.log('이미 사용중');
+    //          console.log(duplicate);
+    //        });
+    // },
     async idChk() {
-      const userName = document.getElementById("username").value;
-      await axios.get('http://localhost:3000/api/idChk/?username='+userName)
-           .then(function (res){
-             console.log(res.status);
-             if(res.status == 200) {
-               alert('사용가능합니다.');
-             }
-             // if(res == true) {
-             //   alert('사용할 수 없는 아이디');
-             // }
-           })
-           .catch(function (err){
-             // console.log(err);
-             alert('이미 사용중입니다.');
-           });
-    },
-    async submitForm() {
       const userData = {
         username: this.username,
         password: this.password,
         nickname: this.nickname,
       };
-      const { data } = await registerUser(userData);
-      console.log(data.username);
-      alert('회원가입이 완료되었습니다.');
-      // this.logMessage = `${this.username}` +  "님이 가입되었습니다";
-      this.initForm();
+      console.log(userData.username);
+      try {
+      const res = await idChkUser(userData.username);
+      console.log(res);
+      console.log(res.status);
+        this.idChkMsg = '사용가능한 이메일입니다.';
+        this.duplicateId = true;
+      } catch (e) {
+        this.duplicateId = false;
+        this.idChkMsg = '사용중인 이메일입니다.';
+      }
+    },
+    async nickChk() {
+      const userData = {
+        username: this.username,
+        password: this.password,
+        nickname: this.nickname,
+      };
+      console.log(userData.nickname);
+      try {
+        const res = await nickChkUser(userData.nickname);
+        console.log(res);
+        console.log(res.status);
+        this.nickChkMsg = '사용가능한 닉네임입니다.';
+        this.duplicateNick = true;
+      } catch (e) {
+        this.duplicateNick = false;
+        this.nickChkMsg = '사용중인 닉네임입니다.';
+      }
+    },
+    // async nickChk() {
+    //   const nickName = document.getElementById("nickname").value;
+    //   let duplicate = false;
+    //   await axios.get('http://localhost:3000/api/nickChk/?nickname='+nickName)
+    //       .then(function (res){
+    //         console.log(res.status);
+    //         if(res.status == 200) {
+    //           duplicate = true;
+    //           console.log('사용가능');
+    //           console.log(duplicate);
+    //         }
+    //       })
+    //       .catch(function (err){
+    //         // console.log(err);
+    //         duplicate = false;
+    //         console.log('이미 사용중');
+    //         console.log(duplicate);
+    //         // alert('이미 사용중입니다.');
+    //       });
+    // },
+    async submitForm() {
+      if(this.duplicateId == true && this.duplicateNick == true) {
+        const userData = {
+          username: this.username,
+          password: this.password,
+          nickname: this.nickname,
+        };
+        const {data} = await registerUser(userData);
+        console.log(data.username);
+        alert('회원가입이 완료되었습니다.');
+        this.idChkMsg = '';
+        this.nickChkMsg = '';
+        // this.logMessage = `${this.username}` +  "님이 가입되었습니다";
+        this.initForm();
+      } else {
+        alert('중복확인을 진행해주세요.');
+        this.idChkMsg = '';
+        this.nickChkMsg = '';
+        this.initForm();
+      }
     },
     loginMove() {
       this.$router.push("/login");
@@ -129,7 +204,7 @@ export default {
   input[type=text],
   input[type=password]{
     width: 100%;
-    padding: 12px 20px;
+    /*padding: 12px 20px;*/
     /*margin: 8px 0;*/
     box-sizing: border-box;
   }

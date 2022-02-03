@@ -11,8 +11,17 @@ function loginUser(userData) {
   return instance.post('login', userData);
 }
 
+// 아이디중복체크 API
+function idChkUser(userData) {
+  return instance.get('api/idChk/?username=' + userData);
+}
+
+function nickChkUser(userData) {
+  return instance.get('api/nickChk/?nickname=' + userData);
+}
+
 function Oauth2Google(userData) {
   return instance.get('login/oauth2/authorizaion/google');
 }
 
-export { registerUser, loginUser };
+export { registerUser, loginUser, idChkUser, nickChkUser };

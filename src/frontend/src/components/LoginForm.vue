@@ -23,8 +23,8 @@
             </span>
           </p>
         </div>
-        <p style="font-size: 11px; margin-right: 140px; text-decoration: underline">
-          <a @click="joinMove" style="cursor: pointer; color: #000; font-weight: bold">아직 회원이 아니신가요? 회원가입 하러가기</a>
+        <p style="font-size: 11px; margin-right: 140px; margin-top: 15px; text-decoration: underline">
+          <a @click="joinMove" style="cursor: pointer; color: #000;  font-weight: bold; font-size: 11px; margin-right: 60px;">아직 회원이 아니신가요? 회원가입 하러가기</a>
         </p>
         <div style="margin-top: 30px;">
           <button
@@ -32,7 +32,7 @@
               @click="mainMove"
               type="submit"
               class="btn"
-              style="width: 340px; height: 42px; background: #fff; border: 1px solid #d0e1d4; margin-top: -5px; font-weight: bold;"
+              style="width: 400px; height: 42px; background: #fff; border: 1px solid #d0e1d4; margin-top: -5px; font-weight: bold;"
           >
             로그인
           </button>
@@ -41,7 +41,7 @@
           <button
               type="button"
               class="btn"
-              style="width: 340px; height: 42px; background: #fff; border: 1px solid #d0e1d4;
+              style="width: 400px; height: 42px; background: #fff; border: 1px solid #d0e1d4;
                      margin-top: -5px; font-weight: bold; background: #3b5998; color: #fff"
               @click="oauthMove"
           >
@@ -52,7 +52,7 @@
           <button
               type="button"
               class="btn"
-              style="width: 340px; height: 42px; background: #fff; border: 1px solid #d0e1d4;
+              style="width: 400px; height: 42px; background: #fff; border: 1px solid #d0e1d4;
                      margin-top: -5px; font-weight: bold; background: #2DB400; color: #fff"
               @click="oauthMove"
           >
@@ -63,7 +63,7 @@
           <button
               type="button"
               class="btn"
-              style="width: 340px; height: 42px; background: #E74C3C; border: 1px solid #d0e1d4;
+              style="width: 400px; height: 42px; background: #E74C3C; border: 1px solid #d0e1d4;
                      margin-top: -5px; font-weight: bold; color: #fff"
               @click="oauthMove"
           >

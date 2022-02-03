@@ -13,8 +13,15 @@ public class UserService {
     private UserRepository repository;
 
     @Transactional
-    public boolean isDuplicate(String username) {
+    public boolean isDuplicateId(String username) {
         boolean result = repository.existsByUsername(username);
+        System.out.println(result);
+        return result;
+    }
+
+    @Transactional
+    public boolean isDuplicateNick(String nickname) {
+        boolean result = repository.existsByNickname(nickname);
         System.out.println(result);
         return result;
     }

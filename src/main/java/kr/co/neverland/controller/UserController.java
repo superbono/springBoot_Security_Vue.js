@@ -31,7 +31,7 @@ public class UserController {
     @ResponseBody
     @GetMapping("/idChk")
     public ResponseEntity<?> idChk(String username) {
-        boolean result = service.isDuplicate((username));
+        boolean result = service.isDuplicateId((username));
         System.out.println(result);
         if(!result) {
             return new ResponseEntity<>(HttpStatus.OK);
@@ -39,4 +39,17 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
     }
+
+    @ResponseBody
+    @GetMapping("/nickChk")
+    public ResponseEntity<?> nickChk(String nickname) {
+        boolean result = service.isDuplicateNick((nickname));
+        System.out.println(result);
+        if(!result) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+    }
+
 }
