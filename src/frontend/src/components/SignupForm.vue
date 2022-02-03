@@ -13,8 +13,13 @@
           <label for="username"></label>
           <input id="username" type="text" v-model="username" style="border: 1px solid #D1D5D8; width: 85%; height: 35px;
                                                                       background: #fff;" placeholder="이메일을 입력하세요" autofocus />
-          <button type="button" @click="idChk" style="margin-left: 9px;width: 48px; height: 35px; border-radius: 3px; background: #fff; border: 1px solid #949394;">중복확인</button>
-          <div id="idLog" style="margin-right: 240px; color: #4c5459; margin-top: 4px; font-size: 12px;">{{ idChkMsg }}</div>
+          <button type="button" @click="idChk" style="margin-left: 9px;width: 48px; height: 35px; border-radius: 3px; background: #fff; border: 1px solid #949394; font-size: 11px;">중복확인</button>
+          <template v-if="duplicateId == true">
+            <div class="idLog" style="margin-right: 240px; color: #2DB400; margin-top: 4px; font-size: 12px;">{{ idChkMsg }}</div>
+          </template>
+          <template v-else>
+            <div class="idLog" style="margin-right: 240px; color: #AF4D4D; margin-top: 4px; font-size: 12px;">{{ idChkMsg }}</div>
+          </template>
         </div>
         <div>
           <label for="password"></label>
@@ -25,11 +30,22 @@
           <label for="nickname"></label>
           <input id="nickname" type="text" v-model="nickname" style="border: 1px solid #D1D5D8; width: 85%; height: 35px;
                                                                          background: #fff; margin-top: 10px;" placeholder="닉네임을 입력하세요" />
-          <button type="button" @click="nickChk" style="margin-left: 9px;width: 48px; height: 35px; border-radius: 3px; background: #fff; border: 1px solid #949394;">중복확인</button>
-          <div id="nickLog" style="margin-right: 240px; color: #4c5459; margin-top: 4px; font-size: 12px;">{{ nickChkMsg }}</div>
+          <button type="button" @click="nickChk" style="margin-left: 9px;width: 48px; height: 35px; border-radius: 3px; background: #fff; border: 1px solid #949394; font-size: 11px;">중복확인</button>
+          <template v-if="duplicateNick == true">
+            <div class="nickLog" style="margin-right: 240px; color: #2DB400; margin-top: 4px; font-size: 12px;">{{ nickChkMsg }}</div>
+          </template>
+          <template v-else>
+            <div class="nickLog" style="margin-right: 240px; color: #AF4D4D; margin-top: 4px; font-size: 12px;">{{ nickChkMsg }}</div>
+          </template>
           <p class="validation-text" style="margin-top: 8px; margin-right: 105px; font-size: 11px; color: brown">
                 <span class="warning" v-if="!isUsernameValid && username">
                   올바른 형식이 아닙니다. 확인 후 다시 입력해주세요.
+                </span>
+                <span class="warning" v-else-if="!isPasswordValid && password">
+                  비밀번호는 8~16 영문, 숫자를 조합해주세요.
+                </span>
+                <span class="warning" v-else-if="!isNicknameValid && nickname">
+                  한글, 영문으로 닉네임을 입력해주세요.
                 </span>
           </p>
         </div>
@@ -64,7 +80,7 @@
 
 <script>
 import { registerUser, idChkUser, nickChkUser } from '@/api/auth';
-import { validateEmail } from '@/utils/validation';
+import { validateEmail, validatePassword, validateNickname } from '@/utils/validation';
 import axios from "axios";
 
 export default {
@@ -114,8 +130,13 @@ export default {
       const res = await idChkUser(userData.username);
       console.log(res);
       console.log(res.status);
-        this.idChkMsg = '사용가능한 이메일입니다.';
-        this.duplicateId = true;
+        if(!this.isUsernameValid) {
+          this.idChkMsg = '가입할 수 없는 이메일입니다.';
+          this.duplicateId = false;
+        } else {
+          this.idChkMsg = '사용가능한 이메일입니다.';
+          this.duplicateId = true;
+        }
       } catch (e) {
         this.duplicateId = false;
         this.idChkMsg = '사용중인 이메일입니다.';
@@ -193,6 +214,12 @@ export default {
     isUsernameValid() {
       return validateEmail(this.username);
     },
+    isPasswordValid() {
+      return validatePassword(this.password);
+    },
+    isNicknameValid() {
+      return validateNickname(this.nickname);
+    }
   },
 };
 </script>
