@@ -12,32 +12,47 @@
         <div style="margin-top: -45px;">
           <label for="username"></label>
           <input id="username" type="text" v-model="username" style="border: 1px solid #D1D5D8; width: 85%; height: 35px;
-                                                                      background: #fff;" placeholder="이메일을 입력하세요" autofocus />
+                                                                      background: #fff;" autofocus placeholder="이메일을 입력해주세요." />
           <button type="button" @click="idChk" style="margin-left: 9px;width: 48px; height: 35px; border-radius: 3px; background: #fff; border: 1px solid #949394; font-size: 11px;">중복확인</button>
-          <template v-if="duplicateId == true">
+          <template v-if="duplicateId == true && username != ''">
             <div class="idLog" style="margin-right: 240px; color: #2DB400; margin-top: 4px; font-size: 12px;">{{ idChkMsg }}</div>
           </template>
-          <template v-else>
+          <template v-else-if="duplicateId == false && username != ''">
             <div class="idLog" style="margin-right: 240px; color: #AF4D4D; margin-top: 4px; font-size: 12px;">{{ idChkMsg }}</div>
+          </template>
+          <template v-else-if="!isUsernameValid && username != ''">
+            <div class="idLog" style="margin-right: 240px; color: #AF4D4D; margin-top: 4px; font-size: 12px;"></div>
+          </template>
+          <template v-else>
+            <div class="idLog" style="margin-right: 240px; color: #AF4D4D; margin-top: 4px; font-size: 12px;"></div>
           </template>
         </div>
         <div>
           <label for="password"></label>
           <input id="password" type="password" v-model="password" style="border: 1px solid #D1D5D8; width: 85%; height: 35px; margin-right: 55px;
-                                                                         background: #fff; margin-top: 10px;" placeholder="비밀번호를 입력하세요" />
+                                                                         background: #fff; margin-top: 10px;" placeholder="비밀번호를 입력해주세요." />
+          <template v-if="password == ''">
+            <div class="pwLog" style="margin-right: 240px; color: #AF4D4D; margin-top: 4px; font-size: 12px;"></div>
+          </template>
         </div>
         <div>
           <label for="nickname"></label>
           <input id="nickname" type="text" v-model="nickname" style="border: 1px solid #D1D5D8; width: 85%; height: 35px;
-                                                                         background: #fff; margin-top: 10px;" placeholder="닉네임을 입력하세요" />
+                                                                         background: #fff; margin-top: 10px;" placeholder="닉네임을 입력해주세요." />
           <button type="button" @click="nickChk" style="margin-left: 9px;width: 48px; height: 35px; border-radius: 3px; background: #fff; border: 1px solid #949394; font-size: 11px;">중복확인</button>
-          <template v-if="duplicateNick == true">
+          <template v-if="duplicateNick == true && nickname != ''">
             <div class="nickLog" style="margin-right: 240px; color: #2DB400; margin-top: 4px; font-size: 12px;">{{ nickChkMsg }}</div>
           </template>
-          <template v-else>
+          <template v-else-if="duplicateNick == false && nickname != ''">
             <div class="nickLog" style="margin-right: 240px; color: #AF4D4D; margin-top: 4px; font-size: 12px;">{{ nickChkMsg }}</div>
           </template>
-          <p class="validation-text" style="margin-top: 8px; margin-right: 105px; font-size: 11px; color: brown">
+          <template v-else-if="!isNicknameValid && nickname != ''">
+            <div class="idLog" style="margin-right: 240px; color: #AF4D4D; margin-top: 4px; font-size: 12px;"></div>
+          </template>
+          <template v-else>
+            <div class="idLog" style="margin-right: 240px; color: #AF4D4D; margin-top: 4px; font-size: 12px;"></div>
+          </template>
+          <p class="validation-text" style="margin-top: 20px; margin-right: 105px; font-weight: bold; font-size: 13px; color: #AF4D4D; margin-left: 10px;">
                 <span class="warning" v-if="!isUsernameValid && username">
                   올바른 형식이 아닙니다. 확인 후 다시 입력해주세요.
                 </span>
@@ -45,12 +60,12 @@
                   비밀번호는 8~16 영문, 숫자를 조합해주세요.
                 </span>
                 <span class="warning" v-else-if="!isNicknameValid && nickname">
-                  한글, 영문으로 닉네임을 입력해주세요.
+                  두글자 이상 한글, 영문으로 닉네임을 입력해주세요.
                 </span>
           </p>
         </div>
     <!--    <button type="submit">회원 가입</button>-->
-        <p style="font-size: 11px; margin-right: 180px; margin-top: 15px; text-decoration: underline">
+        <p style="font-size: 11px; margin-right: -40px; margin-top: 15px; text-decoration: underline">
           <a @click="loginMove" style="cursor: pointer; color: #000; font-weight: bold; font-size: 11px; margin-right: 60px;">가입하셨나요? 로그인하러 가기</a>
         </p>
         <div style="margin-top: 30px;">

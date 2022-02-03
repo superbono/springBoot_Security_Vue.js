@@ -9,7 +9,7 @@ function validatePassword(password) {
 }
 
 function validateNickname(nickname) {
-  var regExp = /^[a-zA-Zㄱ-힣][a-zA-Zㄱ-힣 ]*$/;
+  var regExp = /^[a-zA-Zㄱ-힣][a-zA-Zㄱ-힣 ]{2,10}$/;
   return regExp.test(nickname);
 }
 
