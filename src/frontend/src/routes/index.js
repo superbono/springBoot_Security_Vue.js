@@ -42,11 +42,11 @@ const router = new VueRouter({
 			name: 'neverland',
 			component: () => import('@/views/NeverlandPage.vue'),
 		},
-		{
-			path: '/notice',
-			name: 'notice',
-			component: () => import('@/views/NoticePage.vue'),
-		},
+		// {
+		// 	path: '/notice',
+		// 	name: 'notice',
+		// 	component: () => import('@/views/NoticePage.vue'),
+		// },
 		{
 			path: '/user/detail',
 			name: 'userDetail',
