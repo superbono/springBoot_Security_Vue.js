@@ -14,7 +14,7 @@
             <li><a @click="moveBoard"><span>게시판</span></a></li>
             <li><a @click="moveNeverland"><span>네버랜드</span></a></li>
             <li><a @click="moveUser"><span>마이페이지</span></a></li>
-            <li><a @click="moveNotice"><span>공지사항</span></a></li>
+<!--            <li><a @click="moveNotice"><span>공지사항</span></a></li>-->
           </ul>
         </nav>
         <h2 class="hide">관련서비스</h2>
@@ -37,8 +37,10 @@
             <li><a @click="moveHome"><span>홈</span></a></li>
 <!--            <li><a href="#a"><span>게시판</span></a></li>-->
             <li><a @click="moveNeverland"><span>네버랜드</span></a></li>
+            <li style="margin-left: 320px;">회원가입 후 서비스를 이용하실 수 있습니다.</li>
+            <li style="margin-left: 10px; font-size: 13px; font-weight: bold; cursor: pointer;"><span @click="moveRegister"><span @click="moveRegister">바로가기</span></span></li>
 <!--            <li><a href="#a"><span>마이페이지</span></a></li>-->
-            <li><a @click="moveNotice"><span>공지사항</span></a></li>
+<!--            <li><a @click="moveNotice"><span>공지사항</span></a></li>-->
           </ul>
         </nav>
         <h2 class="hide">관련서비스</h2>
@@ -70,6 +72,9 @@ export default {
   methods: {
     moveHome() {
       this.$router.push('/');
+    },
+    moveRegister() {
+      this.$router.push('/join');
     },
     moveUser() {
       this.$router.push('/user/detail');
