@@ -13,6 +13,7 @@
           <label for="username"></label>
           <input id="username" type="text" v-model="username" style="border: 1px solid #D1D5D8; width: 85%; height: 35px;
                                                                       background: #fff;" placeholder="이메일을 입력하세요" autofocus />
+          <button type="button" @click="idChk">중복확인</button>
         </div>
         <div>
           <label for="password"></label>
@@ -61,6 +62,7 @@
 <script>
 import { registerUser } from '@/api/auth';
 import { validateEmail } from '@/utils/validation';
+import axios from "axios";
 
 export default {
   data() {
@@ -74,6 +76,23 @@ export default {
     };
   },
   methods: {
+    async idChk() {
+      const userName = document.getElementById("username").value;
+      await axios.get('http://localhost:3000/api/idChk/?username='+userName)
+           .then(function (res){
+             console.log(res.status);
+             if(res.status == 200) {
+               alert('사용가능합니다.');
+             }
+             // if(res == true) {
+             //   alert('사용할 수 없는 아이디');
+             // }
+           })
+           .catch(function (err){
+             // console.log(err);
+             alert('이미 사용중입니다.');
+           });
+    },
     async submitForm() {
       const userData = {
         username: this.username,
